@@ -16,6 +16,68 @@ Of course, mapping docker on a SD card, this works, but the Bricks framework del
 ### Hardware
 
 We are connecting the device with an USB Hub with a Micro SD card slot and an external power supply. In this configuration the Arduino sees the usb sd card and can mount it:
-
 ![setup](./setup.jpg)
+*(Annotation: The sd card should be ext4 formatted.)*
+
+    mkdir /mn/sd/podman/storage
+    mkdir /mnt/sd/podman/run
+
+### Preparing the Software Stack
+#### a) Add the SD card to fstab.
+
+    UUID="sc card uuid" /mnt/sd  auto  defaults,nofail 0 0
+
+#### b) Install **podman**:
+
+    sudo apt-get -y install podman
+
+#### c) Set graphroot in **storage.conf**:
+
+    nano ~/.config/containers/storage.conf
+and add:
+
+    #Set data storage path on sdcard
+    graphroot = "/mnt/sd/podman/storage"
+    #Set run time path
+    runroot = "/mnt/sd/podman/run" 
+    #Select overlay driver for ext4.
+    driver = "overlay"
+if you are using Podman rootless, you must 
+
+    sudo chown -R meinuser:meinuser /mnt/sd/podman/run
+
+#### d) Enable access to Dockerhub images 
+
+    nano ~/.config/containers/registries.conf
+and add:
+
+    [registries.search] registries = ['docker.io', 'registry.fedoraproject.org', 'quay.io']
+   
+#### e) Check the configuration
+
+    podman info
+You see the relevant information:
+> configFile: /home/arduino/.config/containers/storage.conf
+> graphRoot: /mnt/sd/podman/storage
+> imageCopyTmpDir: /mnt/sd/podman_temp_space
+> volumePath: /mnt/sd/podman/storage/volumes
+> ...
+
+Try to pull an image
+
+    podman pull hello-world
+    podman run hello-world
+
+#### f) put the tmp folder to the sd card:
+ 
+    mkdir /mnt/sd/podman_temp_space
+and add to .bashrc
+
+    export CONTAINERS_RUNROOT="/mnt/sd/podman/run"
+    export TMPDIR=/mnt/sd/podman_temp_space
+    export TMP=/home/arduino/podman_temp_space
+    export TEMP=/home/arduino/podman_temp_space
+
+> 
+> Written with [StackEdit](https://stackedit.io/).
 
