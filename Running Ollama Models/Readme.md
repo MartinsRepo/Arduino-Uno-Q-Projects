@@ -1,4 +1,3 @@
-
 ![intro](./head.png)
 
 # Running Small Ollama Models on Arduino Uno Q
@@ -22,6 +21,9 @@ We are connecting the device with an USB Hub with a Micro SD card slot and an ex
 
 ![setup](./setup.jpg)
 
+Connect via SSH to the Arduino:
+
+    ssh arduino@192.168.0.178 (use your ip)
 
 *(Annotation: The sd card should be ext4 formatted.)*
 
@@ -87,6 +89,41 @@ and add to .bashrc
     export TMPDIR=/mnt/sd/podman_temp_space
     export TMP=/home/arduino/podman_temp_space
     export TEMP=/home/arduino/podman_temp_space
+## OLLAMA Models on Arduino
+
+### Step 1:
+Supposing you have installed **Podman** on your PC, we can pull ollama:
+
+    podman pull --platform linux/arm64 docker.io/ollama/ollama:latest
+***(Annotation: Use arm64 architekture)***
+Now export this model and store it on the sd card:
+
+    podman save ollama/ollama:latest -o ollama_image.tar
+ ### Step 2:
+ On Arduino side:
+ 
+    podman load -i /mnt/sd/ollama_image.tar
+
+## Run Ollama pulling QWEN3
+ 
+ ### Step 1:
+ 
+    podman run -d \
+      --network=host \
+      --name ollama \
+      -v /mnt/sd/ollama_models:/root/.ollama \
+      docker.io/ollama/ollama:latest
+if already done:
+
+    podman start ollama
+    podman exec -it ollama bash
+and inside the container bash, you can interactive use ollama:
+
+    ollama run qwen3:0.6b
+
+![ai](./ai_shell.png)
+
+
 
 > 
 > Written with [StackEdit](https://stackedit.io/).

@@ -64,9 +64,13 @@ and add:
     podman info
 You see the relevant information:
 > configFile: /home/arduino/.config/containers/storage.conf
+
 > graphRoot: /mnt/sd/podman/storage
+
 > imageCopyTmpDir: /mnt/sd/podman_temp_space
+
 > volumePath: /mnt/sd/podman/storage/volumes
+
 > ...
 
 Try to pull an image
