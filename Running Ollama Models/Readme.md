@@ -16,4 +16,5 @@ Of course, mapping docker on a SD card, this works, but the Bricks framework del
 ### Hardware
 
 We are connecting the device with an USB Hub with a Micro SD card slot and an external power supply. In this configuration the Arduino sees the usb sd card and can mount it:
+
 ![setup](./setup.jpg)
