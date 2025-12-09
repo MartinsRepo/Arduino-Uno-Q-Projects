@@ -1,3 +1,4 @@
+
 ![intro](./head.png)
 # Running Small Ollama Models on Arduino Uno Q
 
@@ -9,14 +10,10 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 ### General Terms
 Large Language Models are huge and even the smallest, we are using here takes 600MB and the Docker image of Ollama takes 6GB, to large for the Arduino internal space:
 ![memory](./memorymap.png)
+*(Already seen here a mounted sdcard partition on /dev/sda1)*
 
 Of course, mapping docker on a SD card, this works, but the Bricks framework delivered by Arduino is vanishing. May be one can shift the whole images. My solution was, to let the framework independently of the sd card on the Arduino, so the Arduino is usable with the **Arduino Lab** as usual without sd card and install **Podman**, whose storage folders are mapped to the sd card. One thing, i was not able to change: During pull, **Podman** (and also Docker) are using the small internal temporal folder. The workaround was to pull the **Ollama** Image from the Dockerhub on the PC in the variant  **--platform linux/arm64**, save as tar file and move it from PC to the Arduino, and load the image into the overlays. This method is working now.
 ### Hardware
 
-We are connecting the devive with an USB Hub with a Micro SD card slot and an external power supply. In this configuration the Arduino sees the usb sd card and can mount it-
-
-
-
-
-
-> Written with [StackEdit](https://stackedit.io/).
+We are connecting the device with an USB Hub with a Micro SD card slot and an external power supply. In this configuration the Arduino sees the usb sd card and can mount it:
+![setup](./setup.jpg)
