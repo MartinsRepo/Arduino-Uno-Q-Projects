@@ -26,8 +26,10 @@ and posting
     }' | jq -r '.response'
 
 *(Annotation: The stream parameter is set to false, meaning the result is displayed, if qwen3 has finished.)*
+
 The result can be seen here:
-![result](./gallery/OllamaClient.png)
+![result](./gallery/curl.png)
+As seen, the answer takes nearly about 1.5 min. So the usage of a LLM on the Arduino is not a real time application, but some non time-critical reasoning of a signal processing program flow.
 
 
 > Written with [StackEdit](https://stackedit.io/).
