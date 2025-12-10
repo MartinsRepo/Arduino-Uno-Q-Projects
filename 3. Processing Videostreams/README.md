@@ -32,6 +32,7 @@ and then start:
 	    --sout #transcode{vcodec=MJPG,vb=500}:std{access=udp,mux=ts,dst=192.168.0.228:8080}'
 
 The output is:
+
 ![result](./gallery/yolo.png)
 
 
