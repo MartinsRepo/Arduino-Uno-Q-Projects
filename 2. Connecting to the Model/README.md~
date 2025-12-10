@@ -32,4 +32,7 @@ The result can be seen here:
 As seen, the answer takes nearly about 1.5 min. So the usage of a LLM on the Arduino is not a real time application, but some non time-critical reasoning of a signal processing program flow.
 
 
+## Access via Python Script
+[Code Snippet ollama_client.py](./src/ollama_client.py)
+
 > Written with [StackEdit](https://stackedit.io/).

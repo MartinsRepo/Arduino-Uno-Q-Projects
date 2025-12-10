@@ -35,4 +35,21 @@ As seen, the answer takes nearly about 1.5 min. So the usage of a LLM on the Ard
 ## Access via Python Script
 [Code Snippet ollama_client.py](./src/ollama_client.py)
 
+### Create a Python Environment
+
+    sudo apt install python3.13-venv
+then: 
+
+    source .venv/bin/activate
+and 
+
+    pip install requests
+Then you can run the code:
+
+    python3 src/ollama_client.py
+The result should be:
+
+![result2](./gallery/OllamaClient.png)
+ 
+
 > Written with [StackEdit](https://stackedit.io/).
