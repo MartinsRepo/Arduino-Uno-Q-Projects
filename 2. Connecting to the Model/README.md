@@ -61,7 +61,9 @@ is used.
 With
 
     v4l2-ctl --list-devices
+
 we see the video adapters, here video2.
+
  ![videoadapters](./gallery/vlc_devices.png)
 
 On the Arduino, we install the VLC part:
