@@ -16,5 +16,24 @@ The sample code for face detection is:
 [Code Snippet streaming.py](./src/streaming.py)
 
 
+Then open a second SSH Shell on the Arduino. We must start our V4L2-streaming.
+First set (only one time)
+
+      mkfifo /tmp/vlc_pipe
+
+and then start: 
+    
+    cvlc -vvv /tmp/vlc_pipe \
+	    --demux rawvideo \
+	    --rawvid-fps 10 \
+	    --rawvid-width 320 \
+	    --rawvid-height 256 \
+	    --rawvid-chroma BGR3 \
+	    --sout #transcode{vcodec=MJPG,vb=500}:std{access=udp,mux=ts,dst=192.168.0.228:8080}'
+
+The output is:
+![result](./gallery/yolo.png)
+
+
 
 > Written with [StackEdit](https://stackedit.io/).
