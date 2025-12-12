@@ -19,7 +19,7 @@ These ideas are engineered so the LLM only runs occasionally, while **the STM32 
 
 > **Here some ideas:**
 
-#####1. The **"Expert Maintenance Log"** System
+##### 1. The **"Expert Maintenance Log"** System
 
 -   **Concept:** Use various sensors (thermocouples, accelerometers, current sensors) from the Arduino Lab to monitor a small motor, 3D printer, or household appliance. The MCU collects all the raw, real-time data. Once a day, the MPU sends a summarized batch of this sensor data to the local LLM.
     
