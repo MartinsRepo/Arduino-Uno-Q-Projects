@@ -1,4 +1,4 @@
-![intro](./head.png)
+![intro](./gallery/head.png)
 
 # Running Small Ollama Models on Arduino Uno Q
 
@@ -10,7 +10,7 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 ### General Terms
 Large Language Models are huge and even the smallest, we are using here takes 600MB and the Docker image of Ollama takes 6GB, to large for the Arduino internal space:
 
-![memory](./memorymap.png)
+![memory](./gallery/memorymap.png)
 
 *(Already seen here a mounted sdcard partition on /dev/sda1)*
 
@@ -19,7 +19,7 @@ Of course, mapping docker on a SD card, this works, but the Bricks framework del
 
 We are connecting the device with an USB Hub with a Micro SD card slot and an external power supply. In this configuration the Arduino sees the usb sd card and can mount it:
 
-![setup](./setup.jpg)
+![setup](./gallery/setup.jpg)
 
 Connect via SSH to the Arduino:
 
