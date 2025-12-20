@@ -117,6 +117,11 @@ Loop part of the sketch:
 
  ![hwbreakpoints](./gallery/hwbreakpoints.png)
 
+and
+ 
+ ![hwbreakpoints1](./gallery/ourbreakpoints.png)
+
+
 
 #### Removing a Breakpoint
 

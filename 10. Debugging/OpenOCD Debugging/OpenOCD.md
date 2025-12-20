@@ -121,7 +121,11 @@ and
  
  ![hwbreakpoints1](./gallery/ourbreakpoints.png)
 
+Now we have set our breakpoints and restart the MCU
 
+    (gdb)  monitor reset halt
+
+ ![reset](./gallery/reset.png)
 
 #### Removing a Breakpoint
 
