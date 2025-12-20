@@ -82,30 +82,15 @@ We get the dependencies of all files included:
 
 
 
+
 ### Debugging
 
     (gdb) info registers
-We get:
 
-> r0             0x1                 1
-r1             0x20034a5c          537086556
-r2             0x3580              13696
-r3             0x2341              9025
-r4             0x20035490          537089168
-r5             0x802b6d8           134395608
-r6             0x8e98              36504
-r7             0x0                 0
-r8             0x8021388           134353800
-r9             0xa350              41808
-r10            0xffffffff          -1
-r11            0xffffffff          -1
-r12            0x0                 0
-sp             0x20034a70          0x20034a70
-lr             0x8016e79           134311545
-pc             0x8006374           0x8006374
-xpsr           0x9000000           150994944
-fpscr          0x0                 0
-... and so on
+We get for example:
+
+ ![info register](./gallery/inforegister.png)
+
 
 
 ### Breakpoint Handling
