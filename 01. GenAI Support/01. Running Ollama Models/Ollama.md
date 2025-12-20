@@ -121,7 +121,7 @@ and inside the container bash, you can interactive use ollama:
 
     ollama run qwen3:0.6b
 
-![ai](./ai_shell.png)
+![ai](./gallery/ai_shell.png)
 
 
 
