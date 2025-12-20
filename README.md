@@ -13,6 +13,7 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 > #### [11. Hardware: Links to Documents](./11.%20Hardware/README.md)
 
+
 ## Project Ideas
 In the chapters below, the integration of GenAI models like **qwen3:0.6b** or video streaming by an USB Webcam is shown. 
 
