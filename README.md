@@ -1,5 +1,18 @@
 # Arduino-Uno-Q-Projects
 
+### License
+Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
+
+## Repo Navigator
+
+> #### [01. GenAI Support: Calculating LLM's on the Arduino](./01.%20GenAI%20Support/README.md)
+
+> #### [02. Peripheral Hardware: Support of different Hardware ](./02.%20Peripheral%20Hardware/README.md)
+
+> #### [10. Debugging: Different Methods](./10.%20Debugging/README.md)
+
+> #### [11. Hardware: Links to Documents](./11.%20Hardware/README.md)
+
 ## Project Ideas
 In the chapters below, the integration of GenAI models like **qwen3:0.6b** or video streaming by an USB Webcam is shown. 
 

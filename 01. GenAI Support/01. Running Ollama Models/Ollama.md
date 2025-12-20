@@ -2,9 +2,6 @@
 
 # Running Small Ollama Models on Arduino Uno Q
 
-## License 
-Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
-
 ## Setup
 
 ### General Terms

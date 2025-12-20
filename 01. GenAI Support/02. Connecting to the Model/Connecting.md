@@ -1,8 +1,5 @@
 # Connecting the Podman Container and additional Hardware
 
-## License 
-Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
-
 ## First Steps
 
 We can ramp up our container with port mapping by:
