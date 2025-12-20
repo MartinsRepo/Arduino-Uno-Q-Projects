@@ -51,16 +51,8 @@ These ideas are engineered so the LLM only runs occasionally, while **the STM32 
 
 
 
-
-
-
-
 > Written with [StackEdit](https://stackedit.io/).
 
 
-
-
-
-> Written with [StackEdit](https://stackedit.io/).
 
 
