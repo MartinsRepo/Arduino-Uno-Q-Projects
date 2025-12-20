@@ -6,7 +6,7 @@ Two ways of Debugging are shown here:
 
 > #### [FTDI Setup](./Debuginterface%20TM32U585/FTDI.md)
 
-> #### [OpenOCD Setup](./OpenOCD%Debugging/OpenOCD.md)
+> #### [OpenOCD Setup](./OpenOCD%20Debugging/OpenOCD.md)
 
 
 
