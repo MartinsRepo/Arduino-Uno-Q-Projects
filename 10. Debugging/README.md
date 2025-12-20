@@ -67,19 +67,14 @@ You get something like this:
  ![info files](./gallery/infofiles.png)
 
 
-    (gdb) info functions loop
+    (gdb) info function loop
+
 You get:
 
-> ll functions matching regular expression "loop":
+ ![info function](./gallery/infofunction.png)
+ 
+This works also with library functions.
 
-File /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino:
-71:	void loop();
-(gdb) info sources
-/home/arduino/ArduinoApps/heartratemonitor/.cache/sketch/sketch.ino_debug.elf:
-(Full debug information has not yet been read for this file.)
-
-/home/arduino/ArduinoApps/heartratemonitor/.cache/sketch/sketch/sketch.ino.cpp, /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino, 
-... and so on
 
     (gdb) info sources
 
