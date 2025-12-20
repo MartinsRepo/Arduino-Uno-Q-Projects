@@ -75,14 +75,12 @@ You get:
  
 This works also with library functions.
 
-
     (gdb) info sources
+We get the dependencies of all files included:
 
-> /home/arduino/ArduinoApps/heartratemonitor/.cache/sketch/sketch.ino_debug.elf:
-(Full debug information has not yet been read for this file.)
-/home/arduino/ArduinoApps/heartratemonitor/.cache/sketch/sketch/sketch.ino.cpp, /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino, 
-/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/cores/arduino/zephyrSerial.h, 
-... and so on
+ ![info sources](./gallery/infosources.png)
+
+
 
 ### Debugging
 
