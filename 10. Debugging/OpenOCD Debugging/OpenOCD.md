@@ -100,20 +100,22 @@ If nothing is set, we see:
 
  ![no breakpoint](./gallery/nobreakpoint.png)
 
-#### Break at a source line
-In this sketch, we set:
+#### Break at a function
 
- ![sketch1](./gallery/ino1.png)
-i
-in line 76.
+By default, GDB prefers **software breakpoints** (patching code).  
+On MCUs this sometimes fails.
 
-    (gdb) break sketch.ino:76  (example)
+##### Force hardware breakpoints (STM32U5 supports 8):
 
-and we see: 
-  
-   ![breakpoint1](./gallery/breakpoint1.png) 
+    (gdb) hbreak setup
+    (gdb) hbreak loop
 
-*(Annotaion: to ensure the latest elf file, we reloaded it.)*
+Loop part of the sketch:
+
+ ![sketch1](./gallery/ino1png)
+
+
+ ![hwbreakpoints](./gallery/hwbreakpoints.png)
 
 
 #### Removing a Breakpoint

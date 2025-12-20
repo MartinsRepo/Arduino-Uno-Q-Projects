@@ -104,7 +104,7 @@ If nothing is set, we see:
 In this sketch, we set:
 
  ![sketch1](./gallery/ino1.png)
-i
+
 in line 76.
 
     (gdb) break sketch.ino:76  (example)
@@ -113,7 +113,7 @@ and we see:
   
    ![breakpoint1](./gallery/breakpoint1.png) 
 
-*(Annotaion: to ensure the latest elf file, we reloaded it.)*
+*(Annotation: to ensure the latest elf file, we reloaded it.)*
 
 
 #### Removing a Breakpoint
