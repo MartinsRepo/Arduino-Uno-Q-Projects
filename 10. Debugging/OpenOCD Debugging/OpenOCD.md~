@@ -97,18 +97,23 @@ We get for example:
     (gdb) info breakpoint
 
 If nothing is set, we see:
+
  ![no breakpoint](./gallery/nobreakpoint.png)
 
 #### Break at a source line
 In this sketch, we set:
- ![sketck1](./gallery/ino.png)
+
+ ![sketch1](./gallery/ino1.png)
+i
 in line 76.
 
     (gdb) break sketch.ino:76  (example)
 
 and we see: 
+  
    ![breakpoint1](./gallery/breakpoint1.png) 
 
+*(Annotaion: to ensure the latest elf file, we reloaded it.)*
 
 
 #### Removing a Breakpoint

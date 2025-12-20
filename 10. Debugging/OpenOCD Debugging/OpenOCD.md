@@ -103,7 +103,7 @@ If nothing is set, we see:
 #### Break at a source line
 In this sketch, we set:
 
- ![sketck1](./gallery/ino.png)
+ ![sketch1](./gallery/ino1.png)
 i
 in line 76.
 
