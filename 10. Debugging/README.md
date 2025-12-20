@@ -4,9 +4,9 @@ As usual for the old Arduino Uno, we can use Serial.print() to show information.
 
 Two ways of Debugging are shown here:
 
-> #### [FTDI Setup](./Debuginterface TM32U585/FTDI.md)
+> #### [FTDI Setup](./Debuginterface%20TM32U585/FTDI.md)
 
-> #### [OpenOCD Setup](./'OpenOCD Debugging'//OpenOCD.md)
+> #### [OpenOCD Setup](./'OpenOCD%Debugging'//OpenOCD.md)
 
 
 
