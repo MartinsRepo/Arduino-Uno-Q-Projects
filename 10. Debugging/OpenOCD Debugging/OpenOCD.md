@@ -97,16 +97,19 @@ We get for example:
     (gdb) info breakpoint
 
 If nothing is set, we see:
- 
  ![no breakpoint](./gallery/nobreakpoint.png)
 
-
 #### Break at a source line
+In this sketch, we set:
+ ![sketck1](./gallery/ino.png)
+in line 76.
 
-    (gdb) break sketch.ino:82  (example)
-   
+    (gdb) break sketch.ino:76  (example)
 
-break <line number>
+and we see: 
+   ![breakpoint1](./gallery/breakpoint1.png) 
+
+
 
 #### Removing a Breakpoint
 

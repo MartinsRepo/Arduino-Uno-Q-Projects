@@ -81,8 +81,6 @@ We get the dependencies of all files included:
  ![info sources](./gallery/infosources.png)
 
 
-
-
 ### Debugging
 
     (gdb) info registers
@@ -92,8 +90,16 @@ We get for example:
  ![info register](./gallery/inforegister.png)
 
 
-
 ### Breakpoint Handling
+
+#### Check for breakpoints
+
+    (gdb) info breakpoint
+
+If nothing is set, we see:
+ 
+ ![no breakpoint](./gallery/nobreakpoint.png)
+
 
 #### Break at a source line
 
