@@ -112,7 +112,7 @@ On MCUs this sometimes fails.
 
 Loop part of the sketch:
 
- ![sketch1](./gallery/ino1png)
+ ![sketch1](./gallery/ino1.png)
 
 
  ![hwbreakpoints](./gallery/hwbreakpoints.png)
