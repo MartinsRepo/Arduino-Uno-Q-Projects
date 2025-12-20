@@ -9,7 +9,7 @@ In a first approach, we implented **OLLAMA** models, in our case
 
 > #### [Ollama Setup](./01.%20Running%20Ollama%20Models/Ollama.md)
 
-> #### [Connecting to Podma Container](./02.%20Connecting%20to%20the%20Model/Connecting.md)
+> #### [Connecting to Podman Container](./02.%20Connecting%20to%20the%20Model/Connecting.md)
 
 
 
