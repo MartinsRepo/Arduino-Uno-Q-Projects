@@ -4,7 +4,7 @@ While using the USB interface for SD card access and Powersupply, we can't use i
 
 For Arduino-side "debugging", we are using a FTDI connector:
 
-![ftdi](./ftdi.png)
+![ftdi](./gallery/ftdi.png)
 
 	|USB-TTL  | Uno Q             |
 	|TX       | Pin 	0 (RX)    |
@@ -31,7 +31,7 @@ and open a serial monitor (here CuteCom with 115200 baud and ttyUSB0 connector:
 	}
 
 
-![cutecom](./cutecom.png)
+![cutecom](./gallery/cutecom.png)
 
 > Written with [StackEdit](https://stackedit.io/).
 
