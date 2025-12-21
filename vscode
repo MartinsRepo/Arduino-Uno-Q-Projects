@@ -1,0 +1,90 @@
+### Compile 
+
+cd /home/arduino/ArduinoApps/heartratemonitor/sketch && arduino-cli compile --fqbn arduino:zephyr:unoq sketch.ino
+
+### Upload
+
+Run terminal command: 
+
+cd /home/arduino/ArduinoApps/heartratemonitor/sketch && arduino-cli compile --upload --fqbn arduino:zephyr:unoq sketch.ino
+
+Jetzt als VSCode task:
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Arduino: Compile and Upload",
+            "type": "shell",
+            "command": "arduino-cli",
+            "args": [
+                "compile",
+                "--upload",
+                "--fqbn",
+                "arduino:zephyr:unoq",
+                "${workspaceFolder}/sketch/sketch.ino"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/sketch"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Arduino: Compile Only",
+            "type": "shell",
+            "command": "arduino-cli",
+            "args": [
+                "compile",
+                "--fqbn",
+                "arduino:zephyr:unoq",
+                "${workspaceFolder}/sketch/sketch.ino"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/sketch"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Arduino: Upload Only",
+            "type": "shell",
+            "command": "arduino-cli",
+            "args": [
+                "upload",
+                "--fqbn",
+                "arduino:zephyr:unoq",
+                "${workspaceFolder}/sketch/sketch.ino"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/sketch"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
