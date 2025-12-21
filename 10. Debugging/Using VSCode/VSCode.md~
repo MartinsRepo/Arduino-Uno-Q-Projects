@@ -1,18 +1,29 @@
-# Debug interfaces for Arduino (TM32U585)
+# Compiling, Flashing and Debugging
 
-As usual for the old Arduino Uno, we can use Serial.print() to show information. As this works well in the mode, an USB cable is plugged to the USB C slot (Arduino Lab is providing a serial monitor) this doesn't work in the pure wireless mode, when there is no USB connection the PC.
+## Test the manual Commands
 
-Two ways of Debugging are shown here:
+### Compile the ino sketch:
 
-> #### [FTDI Setup](./Debuginterface%20TM32U585/FTDI.md)
+ - Goto your sketch folder
+ - and execute the arduino-cli command
 
-> #### [OpenOCD Setup](./OpenOCD%20Debugging/OpenOCD.md)
+![manualcompilation](./gallery/manualcompilation.png)
+
+    cd /home/arduino/ArduinoApps/heartratemonitor/sketch 
+    arduino-cli compile --fqbn arduino:zephyr:unoq sketch.ino
+
+### Upload the sketch
+
+you can check the used board:
+
+    arduino-cli board list
+
+![usedboard](./gallery/usedboard.png)
 
 
+    arduino-cli compile --upload --fqbn arduino:zephyr:unoq sketch.ino
+
+![upload](./gallery/upload.png)
 
 
-
-
-
-
-
+> Written with [StackEdit](https://stackedit.io/).

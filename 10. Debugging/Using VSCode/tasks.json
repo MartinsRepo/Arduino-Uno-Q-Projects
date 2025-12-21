@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Arduino: Compile and Upload",
+            "type": "shell",
+            "command": "arduino-cli",
+            "args": [
+                "compile",
+                "--upload",
+                "--fqbn",
+                "arduino:zephyr:unoq",
+                "${workspaceFolder}/sketch/sketch.ino"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/sketch"
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}

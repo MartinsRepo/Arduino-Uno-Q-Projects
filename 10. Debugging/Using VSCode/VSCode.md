@@ -26,4 +26,13 @@ you can check the used board:
 ![upload](./gallery/upload.png)
 
 
+## Configuring a VSCode Task
+
+Doing compiling and uploading, we can configure a task. / lauch.json:
+
+[tasks.json](./tasks.json)
+
+[launch.json](./launch.json)
+
+
 > Written with [StackEdit](https://stackedit.io/).

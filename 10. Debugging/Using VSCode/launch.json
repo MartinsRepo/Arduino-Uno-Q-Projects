@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Arduino: Compile and Upload",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/sketch/sketch.ino",
+            "preLaunchTask": "Arduino: Compile and Upload",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "stopOnEntry": false,
+            "console": "integratedTerminal"
+        }
+    ]
+}
