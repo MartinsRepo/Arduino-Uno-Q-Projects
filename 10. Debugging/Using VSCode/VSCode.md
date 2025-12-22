@@ -34,5 +34,6 @@ Doing compiling and uploading, we can configure a task. / lauch.json:
 
 [launch.json](./launch.json)
 
+![task](./gallery/task.png)
 
 > Written with [StackEdit](https://stackedit.io/).
