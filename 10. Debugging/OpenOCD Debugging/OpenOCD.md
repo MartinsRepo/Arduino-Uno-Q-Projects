@@ -69,6 +69,14 @@ We will get the debugger console:
 
  ![gdb-client](./gallery/gdb.png)
 
+
+### Set the Architecture
+
+    set architecture armv8-m.main
+    set arm force-mode thumb
+
+
+
 ### Load Firmware
 With the GDB console, we have to load the board firmware:
 
@@ -109,7 +117,9 @@ First update the cache:
 and than read the registers:
 
     info registers
+
 The result is: 
+
  ![registers](./gallery/registers.png)
  
  
