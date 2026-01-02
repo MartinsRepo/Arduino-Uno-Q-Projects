@@ -102,6 +102,17 @@ we see the correct behavior.
  ![resethalt](./gallery/resethalt.png)
 
 
+### Reading the Registers
+First update the cache:
+
+    monitor reg
+and than read the registers:
+
+    info registers
+The result is: 
+ ![registers](./gallery/registers.png)
+ 
+ 
 
 ###
 
