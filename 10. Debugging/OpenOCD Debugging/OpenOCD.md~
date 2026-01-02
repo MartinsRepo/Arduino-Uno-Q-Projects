@@ -2,38 +2,41 @@
 
 On the Linux machine, the **OpenOCD-Debugger** is preinstalled and connects via **SWD (Serial Wire Debug)** with the Arduino processor **STM32U5**) 
 
-## PreWork to be done
+## PreWork to be Done
 
-### Generating the **elf** Outpout
+### Generating the **ELF** Outpout
 
 Using the ** arduino-cli** command, we produce:
 
     arduino-cli compile --fqbn arduino:zephyr:unoq --output-dir /home/arduino/ArduinoApps/blink-led/.cache/sketch /home/arduino/ArduinoApps/blink-led/sketch/sketch.ino
 
- ![gdb-server](./gallery/compileoutput.png)
+ ![compileoutput](./gallery/compileoutput.png)
  
 Now we can have a look to the address table
 
     /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objdump -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug.elf
     
- ![gdb-server](./gallery/addresstable_unshifted.png)
+ ![addresstable_unshifted](./gallery/addresstable_unshifted.png)
 
 As we see, we start at address 00000000h, but we should start at 08000000h. So we shift with objdump
 
     /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objdump -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
 
-in our new file sketch.ino_debug_shifted.elf
+in our new file *sketch.ino_debug_shifted.elf*
 
- ![gdb-server](./gallery/addresstable_shifted.png)
+ ![addresstable_shifted](./gallery/addresstable_shifted.png)
 
 A short check gives: 
 
     /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-readelf -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
 
- ![gdb-server](./gallery/readelf_shifted.png)
+ ![readelf_shifted](./gallery/readelf_shifted.png)
 
-Important: We have a REL file type! This means: only symbole + sections, but no program header. Therefore: Size of program headers: 0
-and: Number of program headers: 0. So, this file is only a symbol container.
+** Important: ** We have a REL file type! 
+This means: only symbole + sections, but no program header. Therefore: 
+*Size of program headers: 0    and: 
+Number of program headers: 0*. 
+So, this file is only a symbol container.
 
 
 ## Steps
@@ -185,3 +188,6 @@ Num     Type           Disp Enb Address    What
 > 
 > Written with [StackEdit](https://stackedit.io/).
 
+
+
+> Written with [StackEdit](https://stackedit.io/).
