@@ -1,12 +1,40 @@
 # Debugging with OpenOCD 
 
 On the Linux machine, the **OpenOCD-Debugger** is preinstalled and connects via **SWD (Serial Wire Debug)** with the Arduino processor **STM32U5**) 
-For proper usage, we must install first:
 
-    sudo apt update
-    sudo apt install gdb-multiarch
+## PreWork to be done
 
-The **GDB Server** runs on **Port 3333**.
+### Generating the **elf** Outpout
+
+Using the ** arduino-cli** command, we produce:
+
+    arduino-cli compile --fqbn arduino:zephyr:unoq --output-dir /home/arduino/ArduinoApps/blink-led/.cache/sketch /home/arduino/ArduinoApps/blink-led/sketch/sketch.ino
+
+ ![gdb-server](./gallery/compileoutput.png)
+ 
+Now we can have a look to the address table
+
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objdump -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug.elf
+    
+ ![gdb-server](./gallery/addresstable_unshifted.png)
+
+As we see, we start at address 00000000h, but we should start at 08000000h. So we shift with objdump
+
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objdump -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
+
+in our new file sketch.ino_debug_shifted.elf
+
+ ![gdb-server](./gallery/addresstable_shifted.png)
+
+A short check gives: 
+
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-readelf -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
+
+ ![gdb-server](./gallery/readelf_shifted.png)
+
+Important: We have a REL file type! This means: only symbole + sections, but no program header. Therefore: Size of program headers: 0
+and: Number of program headers: 0. So, this file is only a symbol container.
+
 
 ## Steps
 
@@ -16,23 +44,39 @@ Using the Arduino-Lab or a ssh access.
 ### Start the GDB Server
 In the bash: 
 
-    arduino-debug
+    arduino-debug -c "init" -c "reset halt"
+    
+The **GDB Server** runs on **Port 3333**.
+
 The result is:
- ![gdb-server](./gallery/gdb-server.png.png)
+ ![gdb-server](./gallery/gdb-server.png)
 
 Keep this Window open and open another Arduino terminal.
 
 
-### Start the Debugger
+### Starting the Debugger
+
+We are starting the debugger with:
+
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb
+
+We will get the debugger console:
+
+ ![gdb-client](./gallery/gdb.png)
+
+###
+
+
+
 
 Normally the sketches are located on the Arduino in:
 ~/ArduinoApps/name of your sketch/.cache/sketch
 so you evoke the debugger with
    
-    gdb-multiarch ~/ArduinoApps/<name of your sketch>/.cache/sketch/sketch.ino_debug.elf
+
 In _debug.elf, you have the symbols. We get something like this:
 
- ![gdb-client](./gallery/gdb-multiarch.png)
+
 
 As an result, you are seeing the debugger shell as (gdb).
 
@@ -121,7 +165,11 @@ and
  
  ![hwbreakpoints1](./gallery/ourbreakpoints.png)
 
+Now we have set our breakpoints and restart the MCU
 
+    (gdb)  monitor reset halt
+
+ ![reset](./gallery/reset.png)
 
 #### Removing a Breakpoint
 

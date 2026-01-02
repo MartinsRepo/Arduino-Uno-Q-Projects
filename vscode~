@@ -104,11 +104,4 @@ cd /home/arduino/ArduinoApps/heartratemonitor/sketch && ~/.arduino15/packages/ze
 cd /home/arduino/.cache/arduino/sketches/DBCEF1FEA4C0B55DB3EA7651B94600A2 && /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb sketch.ino_debug.elf
 Thinking...
 
-target remote localhost:3333
-
-monitor reset halt
-
-info registers
-
-
 /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb
