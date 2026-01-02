@@ -78,6 +78,30 @@ Showing:
  ![firmware](./gallery/firmware.png)
 
 
+### Connect to DGB Server
+
+Connect to the GDB Server
+
+    (gdb) target extended-remote :3333
+
+As a result, you see:
+
+> (gdb)  target extended-remote :3333
+Remote debugging using :3333
+0xeffffffe in ?? ()
+
+Annotation: This is not an error. It means: **This is a normal state after  Reset/Halt.**  
+`0xEFFFFFFE` is a _Exception Return / invalid PC placeholder_, no Code.
+
+With 
+
+    monitor reset halt
+
+we see the correct behavior.
+ ![resethalt](./gallery/resethalt.png)
+
+
+
 ###
 
 

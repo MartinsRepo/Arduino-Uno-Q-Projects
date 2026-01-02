@@ -51,7 +51,9 @@ In the bash:
     
 The **GDB Server** runs on **Port 3333**.
 
+
 The result is:
+
  ![gdb-server](./gallery/gdb-server.png)
 
 Keep this Window open and open another Arduino terminal.
@@ -59,13 +61,22 @@ Keep this Window open and open another Arduino terminal.
 
 ### Starting the Debugger
 
-We are starting the debugger with:
+Open a new SSH bash and start the debugger with:
 
     /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb
 
 We will get the debugger console:
 
  ![gdb-client](./gallery/gdb.png)
+
+### Load Firmware
+With the GDB console, we have to load the board firmware:
+
+    file ~/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf
+
+Showing:
+ ![firmware](./gallery/firmware.png)
+
 
 ###
 
