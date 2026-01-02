@@ -98,6 +98,7 @@ With
     monitor reset halt
 
 we see the correct behavior.
+
  ![resethalt](./gallery/resethalt.png)
 
 
