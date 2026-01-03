@@ -11,6 +11,11 @@ On the Arduino Uno Q (STM32U585 + Zephyr):
  - Your sketch is a relocated object that Zephyr executes at runtime.
 
 
+## Address Map
+
+ ![addressmap](./gallery/addressmap.png)
+
+
 ## Restore the Factory Firmware
 
 **The Problem: Memory Offset**
