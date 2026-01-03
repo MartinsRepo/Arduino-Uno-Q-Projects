@@ -112,7 +112,7 @@ Connect to the GDB Server
 
 As a result, you see:
 
-> target extended-remote :3333
+> (gdb)  target extended-remote :3333
 Remote debugging using :3333
 0xeffffffe in ?? ()
 
@@ -149,41 +149,11 @@ Show
 
 The result is: 
 
- ![registers](./gallery/registers.png)
-
-###
-
-
-
-
-Normally the sketches are located on the Arduino in:
-~/ArduinoApps/name of your sketch/.cache/sketch
-so you evoke the debugger with
-   
-
-In _debug.elf, you have the symbols. We get something like this:
-
-
-
-As an result, you are seeing the debugger shell as (gdb).
-
-
-
-### Make GDB understand your program
-
-Once connected:
-
-    file /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
-This ensures:
--   symbols are loaded
-
--   source lines are mapped
-    
--   variables are visible
+ ![info register](./gallery/inforegister.png)
 
 ### Verifying the Setup
 
-    (gdb) info files
+    info files
 You get something like this:
  ![info files](./gallery/infofiles.png)
 
@@ -203,13 +173,6 @@ We get the dependencies of all files included:
 
 
 ### Debugging
-
-    info registers
-
-We get for example:
-
- ![info register](./gallery/inforegister.png)
-
 
 ### Breakpoint Handling
 
