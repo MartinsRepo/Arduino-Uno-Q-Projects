@@ -2,7 +2,6 @@
 
 On the Linux machine, the **OpenOCD-Debugger** is preinstalled and connects via **SWD (Serial Wire Debug)** with the Arduino processor **STM32U5**) 
 
-
 ## Basic Rules
 On the Arduino Uno Q (STM32U585 + Zephyr):
 
@@ -10,15 +9,13 @@ On the Arduino Uno Q (STM32U585 + Zephyr):
  - Your sketch is not a standalone program.
  - Your sketch is a relocated object that Zephyr executes at runtime.
 
-
 ## Address Map
 
  ![addressmap](./gallery/addressmap.png)
 
-
 ## Restore the Factory Firmware
 
-**The Problem: Memory Offset**
+** The Problem: Memory Offset **
 
 On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved for the **MCUboot bootloader**.
 
@@ -29,7 +26,6 @@ On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved f
 In this case, we must restore the bootloader: 
 
     /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
-
 
 
 ## PreWork to be Done
@@ -50,9 +46,9 @@ Now we can have a look to the address table
 
 As we see, we start at address 00000000h, but we should start at 08000000h. So we shift with objdump
 
-    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objdump -h /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-objcopy --change-addresses 0x08000000 /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug.elf /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
 
-in our new file *sketch.ino_debug_shifted.elf*
+in our new file with the objdump command above *sketch.ino_debug_shifted.elf*
 
  ![addresstable_shifted](./gallery/addresstable_shifted.png)
 
@@ -67,7 +63,6 @@ This means: only symbole + sections, but no program header. Therefore:
 *Size of program headers: 0    and: 
 Number of program headers: 0*. 
 So, this file is only a symbol container.
-
 
 We can upload the compiled version:
 
@@ -118,7 +113,6 @@ Connect to the GDB Server
 As a result, you see:
 
 > (gdb)  target extended-remote :3333
-
 Remote debugging using :3333
 0xeffffffe in ?? ()
 
@@ -136,14 +130,19 @@ we see the correct behavior.
 ### Reading the Registers
 First update the cache:
 
-    flushregs
+    maintenance flush register-cache
+
 and than read the registers:
 
     info registers pc
   
 Show
+
 > (gdb) info registers pc
-> pc             0xb5084770          0xb5084770
+> 
+>pc             0x800a9d8           0x800a9d8  <z_arm_reset>
+
+
 
 
     info registers
@@ -174,162 +173,7 @@ As an result, you are seeing the debugger shell as (gdb).
 
 Once connected:
 
-    (gdb) file ~/ArduinoApps/heartratemonitor/.cache/sketch/sketch.ino_debug.elf
-
-This ensures:
--   symbols are loaded
-
--   source lines are mapped
-    
--   variables are visible
-
-### Verifying the Setup
-
-    (gdb) info files
-You get something like this:
- ![info files](./gallery/infofiles.png)
-
-
-    (gdb) info function loop
-
-You get:
-
- ![info function](./gallery/infofunction.png)
- 
-This works also with library functions.
-
-    (gdb) info sources
-We get the dependencies of all files included:
-
- ![info sources](./gallery/infosources.png)
-
-
-### Debugging
-
-    (gdb) info registers
-
-We get for example:
-
- ![info register](./gallery/inforegister.png)
-
-
-### Breakpoint Handling
-
-#### Check for breakpoints
-
-    (gdb) info breakpoint
-
-If nothing is set, we see:
-
- ![no breakpoint](./gallery/nobreakpoint.png)
-
-#### Break at a function
-
-By default, GDB prefers **software breakpoints** (patching code).  
-On MCUs this sometimes fails.
-
-##### Force hardware breakpoints (STM32U5 supports 8):
-
-    (gdb) hbreak setup
-    (gdb) hbreak loop
-
-Loop part of the sketch:
-
- ![sketch1](./gallery/ino1.png)
-
-
- ![hwbreakpoints](./gallery/hwbreakpoints.png)
-
-and
- 
- ![hwbreakpoints1](./gallery/ourbreakpoints.png)
-
-Now we have set our breakpoints and restart the MCU
-
-    (gdb)  monitor reset halt
-
- ![reset](./gallery/reset.png)
-
-#### Removing a Breakpoint
-
-    (gdb) info breakpoints
-
-> Breakpoint 1 at 0x45a: file /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino, line 82.
-(gdb) info breakpoints
-Num     Type           Disp Enb Address    What
-1       breakpoint     keep y   0x0000045a in loop() 
-                                           at /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino:82
-
-> 
-> 
-> Written with [StackEdit](https://stackedit.io/).
-
-
-
-> Written with [StackEdit](https://stackedit.io/).
-> (gdb)  target extended-remote :3333
-Remote debugging using :3333
-0xeffffffe in ?? ()
-
-Annotation: This is not an error. It means: **This is a normal state after  Reset/Halt.**  
-`0xEFFFFFFE` is a _Exception Return / invalid PC placeholder_, no Code.
-
-With 
-
-    monitor reset halt
-
-we see the correct behavior.
-
- ![resethalt](./gallery/resethalt.png)
-
-
-### Reading the Registers
-First update the cache:
-
-    monitor reg
-and than read the registers:
-
-    info registers
-
-The result is: 
-
- ![registers](./gallery/registers.png)
- 
- 
-
-###
-
-
-
-
-Normally the sketches are located on the Arduino in:
-~/ArduinoApps/name of your sketch/.cache/sketch
-so you evoke the debugger with
-   
-
-In _debug.elf, you have the symbols. We get something like this:
-
-
-
-As an result, you are seeing the debugger shell as (gdb).
-
-
-### In the (gdb) Debugger Shell:
-
-Connect to the GDB Server
-
-    (gdb) target remote localhost:3333
-
-As a result, you see:
-
- ![connectingt](./gallery/connecting.png)
-
-### Make GDB understand your program
-
-Once connected:
-
-    (gdb) file ~/ArduinoApps/heartratemonitor/.cache/sketch/sketch.ino_debug.elf
-
+    file /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
 This ensures:
 -   symbols are loaded
 

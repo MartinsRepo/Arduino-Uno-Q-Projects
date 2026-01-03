@@ -108,11 +108,11 @@ We will get the debugger console:
 
 Connect to the GDB Server
 
-    (gdb) target extended-remote :3333
+    target extended-remote :3333
 
 As a result, you see:
 
-> (gdb)  target extended-remote :3333
+> target extended-remote :3333
 Remote debugging using :3333
 0xeffffffe in ?? ()
 
@@ -138,7 +138,7 @@ and than read the registers:
   
 Show
 
-> (gdb) info registers pc
+> info registers pc
 > 
 >pc             0x800a9d8           0x800a9d8  <z_arm_reset>
 
@@ -188,7 +188,7 @@ You get something like this:
  ![info files](./gallery/infofiles.png)
 
 
-    (gdb) info function loop
+    info function loop
 
 You get:
 
@@ -204,7 +204,7 @@ We get the dependencies of all files included:
 
 ### Debugging
 
-    (gdb) info registers
+    info registers
 
 We get for example:
 
