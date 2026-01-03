@@ -2,6 +2,14 @@
 
 On the Linux machine, the **OpenOCD-Debugger** is preinstalled and connects via **SWD (Serial Wire Debug)** with the Arduino processor **STM32U5**) 
 
+
+## Basic Rules
+On the Arduino Uno Q (STM32U585 + Zephyr):
+
+ - Flash always contains Zephyr firmware.
+ - Your sketch is not a standalone program.
+ - Your sketch is a relocated object that Zephyr executes at runtime.
+
 ## PreWork to be Done
 
 ### Generating the **ELF** Outpout
@@ -82,6 +90,7 @@ Connect to the GDB Server
 As a result, you see:
 
 > (gdb)  target extended-remote :3333
+
 Remote debugging using :3333
 0xeffffffe in ?? ()
 
@@ -93,6 +102,7 @@ With
     monitor reset halt
 
 we see the correct behavior.
+
  ![resethalt](./gallery/resethalt.png)
 
 ### Reading the Registers
@@ -105,7 +115,7 @@ and than read the registers:
   
 Show
 > (gdb) info registers pc
-pc             0xb5084770          0xb5084770
+> pc             0xb5084770          0xb5084770
 
 
     info registers

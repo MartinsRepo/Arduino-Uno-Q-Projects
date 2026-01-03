@@ -10,6 +10,23 @@ On the Arduino Uno Q (STM32U585 + Zephyr):
  - Your sketch is not a standalone program.
  - Your sketch is a relocated object that Zephyr executes at runtime.
 
+
+## Restore the Factory Firmware
+
+** The Problem: Memory Offset **
+
+On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved for the **MCUboot bootloader**.
+
+- If you flash your application binary at offset `0`, you overwrite the bootloader.
+    
+-   The CPU starts at `0x08000000`, finds your application data instead of bootloader instructions, and immediately crashes.
+
+In this case, we must restore the bootloader: 
+
+    /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
+
+
+
 ## PreWork to be Done
 
 ### Generating the **ELF** Outpout
