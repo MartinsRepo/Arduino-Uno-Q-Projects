@@ -25,7 +25,7 @@ On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved f
 
 In this case, we must restore the bootloader: 
 
-    /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
+    /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c -c "program /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
 
 
 ## PreWork to be Done
