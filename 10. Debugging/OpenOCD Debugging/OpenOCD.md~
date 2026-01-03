@@ -143,8 +143,6 @@ Show
 >pc             0x800a9d8           0x800a9d8  <z_arm_reset>
 
 
-
-
     info registers
 
 The result is: 
@@ -166,7 +164,7 @@ You get:
  
 This works also with library functions.
 
-    (gdb) info sources
+    info sources
 We get the dependencies of all files included:
 
  ![info sources](./gallery/infosources.png)
@@ -178,7 +176,7 @@ We get the dependencies of all files included:
 
 #### Check for breakpoints
 
-    (gdb) info breakpoint
+    info breakpoint
 
 If nothing is set, we see:
 
@@ -191,8 +189,8 @@ On MCUs this sometimes fails.
 
 ##### Force hardware breakpoints (STM32U5 supports 8):
 
-    (gdb) hbreak setup
-    (gdb) hbreak loop
+    hbreak setup
+    hbreak loop
 
 Loop part of the sketch:
 
