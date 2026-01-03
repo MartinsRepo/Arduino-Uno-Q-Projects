@@ -13,7 +13,7 @@ On the Arduino Uno Q (STM32U585 + Zephyr):
 
 ## Restore the Factory Firmware
 
-** The Problem: Memory Offset **
+**The Problem: Memory Offset**
 
 On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved for the **MCUboot bootloader**.
 

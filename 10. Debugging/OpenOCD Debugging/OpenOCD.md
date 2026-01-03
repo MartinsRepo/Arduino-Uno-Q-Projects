@@ -64,6 +64,12 @@ Number of program headers: 0*.
 So, this file is only a symbol container.
 
 
+We can upload the compiled version:
+
+    arduino-cli upload --fqbn arduino:zephyr:unoq -v /home/arduino/ArduinoApps/blink-led/sketch/
+
+ ![upload](./gallery/upload.png)
+
 ## Steps
 
 ### Arduino Bash
