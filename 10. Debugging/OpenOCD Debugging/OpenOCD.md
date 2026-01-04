@@ -27,6 +27,22 @@ In this case, we must restore the bootloader:
 
     /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
 
+You can fetch also information:
+
+    /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; flash probe 0; exit"
+
+with
+
+ ![info](./gallery/info.png)
+
+
+Verify the fix:
+
+    monitor mdw 0x08020000 4
+
+It should give:
+
+> 0x08020000: 00000000 00000001 00000002 00000050 
 
 
 ## PreWork to be Done
@@ -202,13 +218,13 @@ Loop part of the sketch:
 
 Now we have set our breakpoints and restart the MCU
 
-    (gdb)  monitor reset halt
+    monitor reset halt
 
  ![reset](./gallery/reset.png)
 
 #### Removing a Breakpoint
 
-    (gdb) info breakpoints
+    info breakpoints
 
 > Breakpoint 1 at 0x45a: file /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino, line 82.
 (gdb) info breakpoints
