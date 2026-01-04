@@ -47,6 +47,8 @@ It should give:
 
 ## PreWork to be Done
 
+Supposing we are trying to debug a piece of code eg. the example blink-led.ino
+
 ### Generating the **ELF** Outpout
 
 Using the ** arduino-cli** command, we produce:
