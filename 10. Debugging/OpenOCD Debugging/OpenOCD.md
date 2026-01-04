@@ -36,7 +36,7 @@ with
  ![info](./gallery/info.png)
 
 
-Verify the fix:
+Verify the fix in a GDB shell:
 
     monitor mdw 0x08020000 4
 
@@ -46,6 +46,8 @@ It should give:
 
 
 ## PreWork to be Done
+
+Supposing we are trying to debug a piece of code eg. the example blink-led.ino
 
 ### Generating the **ELF** Outpout
 

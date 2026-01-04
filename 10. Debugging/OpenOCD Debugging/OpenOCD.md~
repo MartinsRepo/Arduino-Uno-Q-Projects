@@ -27,7 +27,16 @@ In this case, we must restore the bootloader:
 
     /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
 
-Verify the fix:
+You can fetch also information:
+
+    /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; flash probe 0; exit"
+
+with
+
+ ![info](./gallery/info.png)
+
+
+Verify the fix in a GDB shell:
 
     monitor mdw 0x08020000 4
 
