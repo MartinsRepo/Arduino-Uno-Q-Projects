@@ -112,7 +112,7 @@ Keep this Window open and open another Arduino terminal.
 
 Open a new SSH bash and start the debugger with the firmware:
 
-    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf
+    /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-gdb /home/arduino/ArduinoApps/blink-led/.cache/sketch/sketch.ino_debug_shifted.elf
 
 We will get the debugger console:
 
@@ -227,17 +227,5 @@ Now we have set our breakpoints and restart the MCU
 #### Removing a Breakpoint
 
     info breakpoints
-
-> Breakpoint 1 at 0x45a: file /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino, line 82.
-(gdb) info breakpoints
-Num     Type           Disp Enb Address    What
-1       breakpoint     keep y   0x0000045a in loop() 
-                                           at /home/arduino/ArduinoApps/heartratemonitor/sketch/sketch.ino:82
-
-> 
-> 
-> Written with [StackEdit](https://stackedit.io/).
-
-
 
 > Written with [StackEdit](https://stackedit.io/).
