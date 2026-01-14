@@ -32,6 +32,12 @@ On the Arduino Uno Q, the first 128KB (0x20000) of flash is typically reserved f
 
 In this case, we must restore the bootloader: 
 
+You can erase the complete chip with: 
+    
+    opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; halt; stm32u5x mass_erase 0; reset; exit"
+
+and then restore the bootloader
+
     /opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; reset halt" -c "program /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
 
 You can fetch also information:

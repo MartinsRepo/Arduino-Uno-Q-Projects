@@ -9,6 +9,13 @@ On the Arduino Uno Q (STM32U585 + Zephyr):
  - Your sketch is not a standalone program.
  - Your sketch is a relocated object that Zephyr executes at runtime.
 
+
+## Difference Arduino Uno and Arduino Uno Q
+As shown in the **chatGPT** output:
+
+ ![workflow](./gallery/workflow.png)
+
+
 ## Address Map
 
  ![addressmap](./gallery/addressmap.png)
