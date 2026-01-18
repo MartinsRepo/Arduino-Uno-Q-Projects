@@ -9,7 +9,7 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 > #### [02. Peripheral Hardware: Support of different Hardware ](./02.%20Peripheral%20Hardware/README.md)
 
-> #### [03. App Setup](./03.%20App%20Setup/README.md)
+> #### [03. Technical Setups](./03.%20Technical%20Setups/README.md)
 
 > #### [4. Debugging: Different Methods](./04.%20Debugging/README.md)
 
