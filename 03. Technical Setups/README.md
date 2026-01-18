@@ -2,7 +2,7 @@
 The Arduino Uno Q doesn't work like a Arduino Uno. Descriptions to take it into operation are placed here.
 
 
-> #### [GPIOs](./01.%20GPIOs/GPIO.md)
+> #### [GPIOs](./GPIO.md)
 
 
 
