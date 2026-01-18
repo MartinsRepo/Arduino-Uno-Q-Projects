@@ -55,7 +55,7 @@ During boot, the STM32 is in an undefined state if no valid sketch or bridge fir
     exit
 (2) Upload the Bootloader 
 
-    `adb shell arduino-cli upload -p /dev/ttyACM0 -b arduino:zephyr:unoq --input-file /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin
+    `/opt/openocd/bin/openocd -s /opt/openocd -f openocd_gpiod.cfg -c "init; halt; program /home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.52.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin 0x08000000 verify reset exit"
 
  ![upload](./gallery/upload.png)
 
