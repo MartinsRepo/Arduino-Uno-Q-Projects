@@ -4,6 +4,8 @@ I bundled here all peripheral hardware integration, probably useful in some proj
 
 > #### [Webcam Setup](./01.%20Processing%20Videostreams/WebCAM.md)
 
+> #### [SPI Display](./02.%20Display/Display.md)
+
 
 
 
