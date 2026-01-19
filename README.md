@@ -3,7 +3,7 @@
 ### License
 Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
 
-![intro](./intro.png) { width=50% }
+![intro](./intro.png){ width=50% }
 
 ## Repo Navigator
 
