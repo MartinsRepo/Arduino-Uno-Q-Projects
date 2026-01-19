@@ -3,6 +3,8 @@
 ### License
 Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
 
+![intro](./intro.png)
+
 ## Repo Navigator
 
 > #### [01. GenAI Support: Calculating LLM's on the Arduino](./01.%20GenAI%20Support/README.md)
