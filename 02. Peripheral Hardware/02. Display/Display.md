@@ -4,7 +4,14 @@ This documentation describes a custom graphics implementation for the **Arduino 
 
 ### 1. Prototype Board
 ![prototype](./gallery/prototype.jpg)
-### 2. System Architecture
+### 2. Source Code
+#### Python Code
+[main.py](./source/main.py)
+
+#### Sketch
+[sketch.ino](./source/sketch.ino)
+
+### 3. System Architecture
 
 The Arduino Uno Q features a unique "Bridge" architecture. The graphics driver is split into two distinct layers:
 
@@ -12,7 +19,7 @@ The Arduino Uno Q features a unique "Bridge" architecture. The graphics driver i
     
 -   **The Hardware Layer (C++):** An optimized SPI driver that communicates directly with the **ST7789** display controller. It handles the frame buffer, font rendering, and coordinate offsets.
 
-### 3. Hardware Interface (C++)
+### 4. Hardware Interface (C++)
 
 The C++ driver communicates via the **Serial Peripheral Interface (SPI)**.
 #### Display
@@ -28,7 +35,7 @@ The C++ driver communicates via the **Serial Peripheral Interface (SPI)**.
 -   `drawPixel(x, y, color)`: The fundamental drawing unit. It sets a 1x1 window and pushes a 16-bit **RGB565** color value.
     
 -   `fillScreen(color)`: Rapidly fills the entire display memory with a single color.
-### 4. Font Engine & Text Rendering
+### 5. Font Engine & Text Rendering
 
 Since the ST7789 is a raw pixel controller, the driver includes a custom bitmap font engine.
 
@@ -41,7 +48,7 @@ Since the ST7789 is a raw pixel controller, the driver includes a custom bitmap 
     1.  **Manual Breaks:** Interprets `\n` as a carriage return.
         
     2.  **Auto Wrapping:** Monitors `cursorX` and automatically moves to the next line if the text exceeds `TFT_WIDTH`.
-### 5. The RouterBridge (Cross-Platform Communication)
+### 6. The RouterBridge (Cross-Platform Communication)
 
 The core feature of the Uno Q is the ability to trigger C++ functions from Python.
 
@@ -61,7 +68,7 @@ The Python side handles the "intelligence" of the application:
 
 This offloads string manipulation and complex logic from the C++ side, allowing for much more flexible application development.
 
-### 6. Technical Specifications summary
+### 7. Technical Specifications summary
 
 -   **Controller:** ST7789 (240x280 LCD).
     
@@ -74,12 +81,3 @@ This offloads string manipulation and complex logic from the C++ side, allowing 
 -   **Offsets:** Hardware-specific alignment correction via `X_OFFSET` and `Y_OFFSET`.
 
 > Written with [StackEdit](https://stackedit.io/).
-
-
-
-
-
-
-
-
-
