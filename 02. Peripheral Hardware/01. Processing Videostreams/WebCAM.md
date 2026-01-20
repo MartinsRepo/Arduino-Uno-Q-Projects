@@ -30,6 +30,7 @@ For the first test, we can send the camera stream via UDP to the PC and show the
 if necessary, we can enlarge the UDP buffer on the Arduino:
 
     sudo sysctl -w net.core.wmem_max=4194304 # 4MB Max Write Buffer
+
 Then we configure VLC on the PC:
 
  - Open in Media: *Open network stream*
@@ -37,5 +38,6 @@ Then we configure VLC on the PC:
  - Click Show more options
  - and set the storage parameter to **50ms**
 
+  ![vlc](./gallery/vlc.png)
 
 > Written with [StackEdit](https://stackedit.io/).

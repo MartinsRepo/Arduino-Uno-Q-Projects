@@ -49,44 +49,5 @@ The result should be:
 ![result2](./gallery/OllamaClient.png)
  
  
- ## Integrating a USB Webcam
- Here
- 
-> Bus 001 Device 004: ID 045e:0810 Microsoft Corp. LifeCam HD-3000
-
-is used.
-With
-
-    v4l2-ctl --list-devices
-
-we see the video adapters, here video2.
-
- ![videoadapters](./gallery/vlc_devices.png)
-
-On the Arduino, we install the VLC part:
-
-    sudo apt install vlc
-
-For the first test, we can send the camera stream via UDP to the PC and show the video:
- 
-    cvlc -vvv v4l2:///dev/video2 \
-    --v4l2-chroma MJPG \
-    --v4l2-width 320 \
-    --v4l2-height 256 \
-    --sout '#std{access=udp,mux=ts,dst=192.168.0.228:8080}'
-
-if necessary, we can enlarge the UDP buffer on the Arduino:
-
-    sudo sysctl -w net.core.wmem_max=4194304 # 4MB Max Write Buffer
-Then we configure VLC on the PC:
-
- - Open in Media: Open network stream
- - Enter the network address: udp://@:8080
- - Click Show more options
- - and set the storage parameter to 50ms
-
- ![vlc](./gallery/vlc.png)
-
-
 
 > Written with [StackEdit](https://stackedit.io/).
