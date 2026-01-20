@@ -42,13 +42,71 @@ Then we configure VLC on the PC:
 
   ![vlc](./gallery/vlc.png)
 
-## Face Analysis with Google Mediapipe
+## Face Landmark Streaming via MediaPipe & FFmpeg
 
-### Step 1: We install a virtual environment
+This project demonstrates an efficient pipeline to compute Google MediaPipe Face Landmarks on a **Qualcomm-based Edge Device** (e.g., Arduino Uno R4 / Qualcomm Vision AI) and stream the results with minimal latency to a host PC via UDP.
 
-[Click the Link](https://github.com/MartinsRepo/Arduino-Uno-Q-Projects/tree/main/10.%20Tips%26Tricks/Pyenv%20Virtualenv)
+### How it Works
+
+The program utilizes a multi-stage pipeline designed to provide smooth performance despite limited CPU resources on the Edge device:
+
+1.  **Capture:** OpenCV captures the video stream from the webcam (`/dev/video2`) at an optimized resolution of **320x240 pixels**.
+
+2.  **AI Processing:** Google MediaPipe analyzes the frame. To reduce CPU load, only a specific subset of landmarks is drawn: Face Oval, Eyes, Eyebrows, and Lips.
+
+3.  **Visualization:** By disabling the default heavy landmark markers, the person remains clearly visible behind the overlay, and drawing overhead is minimized.
+
+4.  **Encoding:** The processed frame is passed in **BGR raw format** via a pipe to an FFmpeg subprocess.
+
+5.  **Streaming:** FFmpeg encodes the frames using `libx264` with the `baseline` profile and `zerolatency` tuning. The result is muxed into an MPEG-TS container and sent via **UDP** to the host PC's IP address.
 
 
+### Prerequisites
+
+-   **Hardware:** Qualcomm / Arduino Edge Board with a camera mapped to `/dev/video2`.
+
+-   **Software:** FFmpeg, Python 3.12, MediaPipe, OpenCV.
+
+-   **Network:** Both devices must be on the same local network.
+
+### Step 1: Installation of the Virtual Environment
+
+[Click the Link](https://github.com/MartinsRepo/Arduino-Uno-Q-Projects/tree/main/10.%20Tips%26Tricks/Pyenv%20Virtualenv//Virtualenv.md)
+
+and activate the environment:
+
+    pyenv activate mpipe
 
 
-  > Written with [StackEdit](https://stackedit.io/).
+### Step 2: Install mediapipe
+
+    pip install opencv-python mediapipe
+
+### How to Run (Edge Device)
+The Phyton Code can be found here:
+
+[mpipe.py](./source/mpipe.py)
+
+and run the program with:
+
+    python mpipe_test.py
+
+### How to Receive (Host PC)
+
+To receive the stream with minimum delay and avoid the "Timestamp conversion" errors often seen in UDP streams, it is recommended to launch **VLC Media Player** via the command line with optimized caching and jitter settings:
+
+    vlc udp://@:8080 --network-caching=100 --clock-jitter=0 --demux=h264
+ This results in a landmarks decorated face:
+
+![face](./gallery/face.png)
+
+### Key Technical Details
+
+-   **Resolution:** 320x240 (Balancing AI accuracy and encoding speed).
+
+-   **Bitrate:** Forced to 1M to prevent network congestion and UDP packet loss.
+
+-   **GOP (Group of Pictures):** Set to `-g 10` to ensure the stream recovers quickly from network errors.
+
+
+> Written with [StackEdit](https://stackedit.io/).
