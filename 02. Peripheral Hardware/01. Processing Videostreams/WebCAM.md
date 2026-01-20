@@ -1,37 +1,41 @@
-# Processing the Videostreams
+# Integrating and Processing WebCam Videostreams
 
-## Background
-The idea behind is to capture the face landmarks via YOLO8 [# ultralytics](https://pypi.org/project/ultralytics/) and provide the landmarks to qwen3 for interpretation. While YOLOv8 is primarily known for object recognition, Ultralytics has also released specialized models that can be used for tasks such as pose estimation and segmentation. For your specific requirement—extracting viewpoints—the YOLOv8 Pose Estimation model is ideal because it provides keypoints.
+ ## Integrating a USB Webcam
+ Here
 
-## First Steps
-We are using the .venv already created in chapter 2.
+> Bus 001 Device 004: ID 045e:0810 Microsoft Corp. LifeCam HD-3000
 
-    pip install ultralytics
-    pip install opencv-python
+is used.
+With
 
-The sample code for face detection is:
-[Code Snippet streaming.py](./src/streaming.py)
+    v4l2-ctl --list-devices
+we see the video adapters, here video2.
+ ![videoadapters](./gallery/vlc_devices.png)
 
+On the Arduino, we install the VLC part:
 
-Then open a second SSH Shell on the Arduino. We must start our V4L2-streaming.
-First set (only one time)
+    sudo apt update
+    sudo apt install ffmpeg -y
+    sudo apt install vlc
+    sudo apt install libglib2.0-0 -y
 
-      mkfifo /tmp/vlc_pipe
+For the first test, we can send the camera stream via UDP to the PC and show the video:
 
-and then start: 
-    
-    cvlc -vvv /tmp/vlc_pipe \
-	    --demux rawvideo \
-	    --rawvid-fps 10 \
-	    --rawvid-width 320 \
-	    --rawvid-height 256 \
-	    --rawvid-chroma BGR3 \
-	    --sout #transcode{vcodec=MJPG,vb=500}:std{access=udp,mux=ts,dst=192.168.0.228:8080}'
+    cvlc -vvv v4l2:///dev/video2 \
+    --v4l2-chroma MJPG \
+    --v4l2-width 320 \
+    --v4l2-height 256 \
+    --sout '#std{access=udp,mux=ts,dst=192.168.0.228:8080}'
 
-The output is:
+if necessary, we can enlarge the UDP buffer on the Arduino:
 
-![result](./gallery/yolo.png)
+    sudo sysctl -w net.core.wmem_max=4194304 # 4MB Max Write Buffer
+Then we configure VLC on the PC:
 
+ - Open in Media: *Open network stream*
+ - Enter the network address: **udp://@:8080**
+ - Click Show more options
+ - and set the storage parameter to **50ms**
 
 
 > Written with [StackEdit](https://stackedit.io/).
