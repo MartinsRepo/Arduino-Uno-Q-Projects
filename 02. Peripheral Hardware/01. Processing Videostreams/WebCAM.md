@@ -1,6 +1,7 @@
 # Integrating and Processing WebCam Videostreams
 
- ## Integrating a USB Webcam
+## Integrating a USB Webcam
+
  Here
 
 > Bus 001 Device 004: ID 045e:0810 Microsoft Corp. LifeCam HD-3000
@@ -10,6 +11,7 @@ With
 
     v4l2-ctl --list-devices
 we see the video adapters, here video2.
+
  ![videoadapters](./gallery/vlc_devices.png)
 
 On the Arduino, we install the VLC part:
@@ -40,4 +42,13 @@ Then we configure VLC on the PC:
 
   ![vlc](./gallery/vlc.png)
 
-> Written with [StackEdit](https://stackedit.io/).
+## Face Analysis with Google Mediapipe
+
+### Step 1: We install a virtual environment
+
+[Click the Link](https://github.com/MartinsRepo/Arduino-Uno-Q-Projects/tree/main/10.%20Tips%26Tricks/Pyenv%20Virtualenv)
+
+
+
+
+  > Written with [StackEdit](https://stackedit.io/).
