@@ -1,0 +1,13 @@
+# 1. Specify the base model
+FROM qwen3:0.6B
+
+# 2. Set the system prompt
+SYSTEM """
+You are an expert in face behavior interpretation. 
+Always provide concise answers and explain the detected face 
+in a short description.
+"""
+
+# 3. Optional: Adjust parameters like creativity
+PARAMETER temperature 0.7
+

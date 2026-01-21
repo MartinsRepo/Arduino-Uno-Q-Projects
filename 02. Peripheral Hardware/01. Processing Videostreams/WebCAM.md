@@ -109,4 +109,58 @@ To receive the stream with minimum delay and avoid the "Timestamp conversion" er
 -   **GOP (Group of Pictures):** Set to `-g 10` to ensure the stream recovers quickly from network errors.
 
 
+## Face Interpretation & LLM Integration
+This section explains how facial landmark data is processed and interpreted using a local Large Language Model (LLM). To ensure stability on Edge hardware like the **Arduino/Qualcomm board**, the project uses a data-reduction strategy and an asynchronous request-response cycle.
+
+### Prerequisites
+Follow the instructions in chapter 1, activate the environment and install additional libs:
+
+    pyenv activate mpipe
+    pip install requests
+    pip install jsons
+
+### Optimized JSON Data Reduction
+
+Instead of sending all 468 landmarks to the LLM—which would exceed token limits and cause extreme latency—the script extracts only the most significant geometric features.
+
+-   **Key Metrics:** The script calculates specific distances, such as mouth opening (`mouth_open`) and eye aperture (`left_eye_open`), by measuring the Euclidean distance between normalized Y-coordinates.
+
+-   **Token Efficiency:** Coordinates are rounded to 3 decimal places. This provides sufficient precision for spatial reasoning while minimizing the JSON payload size.
+
+-   **JSON Structure:**
+
+    {
+    "oval_width": 0.452,
+     "mouth_open": 0.081,
+      "left_eye": 0.025
+    }
+
+### Asynchronous Container Communication (Podman)
+
+The project communicates with an **Ollama** instance running inside a **Podman container**. Since LLM inference is computationally expensive, we use an asynchronous approach to keep the video stream fluid.
+
+-   **Threaded Workers:** Inference requests are handled in a background thread using Python’s `threading` module. This prevents the `requests.post` call from blocking the main video capture loop.
+
+-   **Adaptive Throttle:** A global flag (`is_processing`) ensures that only one request is sent to the LLM at a time. The script waits for the model to finish its response before sending a new set of data. This allows the system to automatically adapt to the hardware's processing speed (e.g., waiting 30+ seconds if necessary).
+
+-   **Container Access:** The script connects to Ollama via the local API endpoint: `http://localhost:11434/api/generate`.
+
+### Setup & Execution
+
+#### Sourcefile
+[faceinterpretation.py](./source/faceinterpretation.py)
+
+#### Prepare the Podman Container**
+
+Create your custom model within the Ollama container:
+```
+podman exec -it ollama ollama create custom-qwen -f /tmp/Modelfile
+```
+#### Running the Interpreter**
+
+Ensure the `requests` library is installed in your environment:
+```
+python mpipe_test.py
+```
 > Written with [StackEdit](https://stackedit.io/).
+
