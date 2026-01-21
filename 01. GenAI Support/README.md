@@ -12,7 +12,7 @@ Then we accessed it via Python Script and a third approach, we customized it via
 
 > #### [Connecting to Podman Container](./02.%20Connecting%20to%20the%20Model/Connecting.md)
 
-> #### [Customizing the Model](./03.%20Customizing%20the%20the%20Model/Customizing.md)
+> #### [Customizing the Model](./03.%20Customizing%20the%20Model/Customizing.md)
 
 
 
