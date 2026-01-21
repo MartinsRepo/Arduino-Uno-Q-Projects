@@ -162,5 +162,11 @@ Ensure the `requests` library is installed in your environment:
 ```
 python mpipe_test.py
 ```
+
+#### Result
+![answer](./gallery/answer.png)
+
+As you see it takes a lot of time, about 90 seconds for the answer.
+
 > Written with [StackEdit](https://stackedit.io/).
 
