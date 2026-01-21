@@ -50,114 +50,20 @@ Once the model is created, you can call it via the Ollama API. The system prompt
 
 **Example Python Snippet:**
 
-> import requests
-import json
-
-> OLLAMA_API_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "custom-qwen"
-payload = {
+    import requests
+    import json
+    
+    OLLAMA_API_URL = "http://localhost:11434/api/generate"
+    
+    MODEL_NAME = "custom-qwen"
+    payload = {
     "model": MODEL_NAME,
     "prompt": "Explain the advantages of Podman over Docker.",
     "stream": False
-}
-
-> response = requests.post(OLLAMA_API_URL, json=payload)
-print(response.json().get("response"))
-
-
-
-Written with [StackEdit](https://stackedit.io/).
-
-
-## 🛠️ Customizing Ollama Models in Podman
-
-This guide explains how to create a custom model (persona) using a `Modelfile` and integrate it into a Python-based workflow.
-
-### 1. Prerequisites
-
--   **Podman** installed and running.
+    }
     
--   **Ollama** container running (e.g., named `ollama`).
-    
--   Base model pulled (e.g., `qwen3:0.6B`).
-    
-
-### 2. Create a Modelfile
-
-The `Modelfile` acts as a blueprint for your custom model. It defines the base model, system instructions, and generation parameters.
-
-**File:** `Modelfile`
-
-Dockerfile
-
-```
-# Specify the base model
-FROM qwen3:0.6B
-
-# Set the system prompt (Persona)
-SYSTEM """
-You are a specialized DevOps assistant. 
-Always provide concise answers and explain technical terms 
-briefly using bullet points.
-"""
-
-# Adjust model parameters
-PARAMETER temperature 0.7
-
-```
-
-### 3. Build the Custom Model
-
-Since Ollama runs inside a container, the `Modelfile` must be moved into the container's file system before the build command is executed.
-
-a)  **Copy the file to the container:**
-    
-    Bash
-    
-    ```
-    podman cp Modelfile ollama:/tmp/Modelfile
-    
-    ```
-    
-b)  **Execute the creation command:**
-    
-    Bash
-    
-    ```
-    podman exec -it ollama ollama create custom-qwen -f /tmp/Modelfile
-    
-    ```
-    
-c) **Verify the new model exists:**
-    
-    Bash
-    
-    ```
-    podman exec -it ollama ollama list
-    
-
-
-### 4. Integration with Python
-
-Once the model is created, you can call it via the Ollama API. The system prompt is now "baked into" the model, so your API payload remains clean.
-
-**Example Python Snippet:**
-
-> import requests
-import json
-
-> OLLAMA_API_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "custom-qwen"
-payload = {
-    "model": MODEL_NAME,
-    "prompt": "Explain the advantages of Podman over Docker.",
-    "stream": False
-}
-
-> response = requests.post(OLLAMA_API_URL, json=payload)
-print(response.json().get("response"))
-
-
+    response = requests.post(OLLAMA_API_URL, json=payload)
+    print(response.json().get("response"))
 
 Written with [StackEdit](https://stackedit.io/).
 
