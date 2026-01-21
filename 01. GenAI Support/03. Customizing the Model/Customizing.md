@@ -1,7 +1,5 @@
 ## Customizing Ollama Models in Podman
 
-## Customizing Ollama Models in Podman
-
 This guide explains how to create a custom model (persona) using a `Modelfile` and integrate it into a Python-based workflow.
 
 ### 1. Prerequisites (as done before)
@@ -30,7 +28,11 @@ The `Modelfile` acts as a blueprint for your custom model. It defines the base m
     # Adjust model parameters
     PARAMETER temperature 0.7
 
-Move This file into the container
+### 3. Build the Custom Model
+
+Since Ollama runs inside a container, the Modelfile must be moved into the container's file system before the build command is executed.
+
+Copy this file into the container
 
     podman cp Modelfile ollama:/tmp/Modelfile
 
