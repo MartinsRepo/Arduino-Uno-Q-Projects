@@ -1,5 +1,7 @@
 ## Customizing Ollama Models in Podman
 
+## Customizing Ollama Models in Podman
+
 This guide explains how to create a custom model (persona) using a `Modelfile` and integrate it into a Python-based workflow.
 
 ### 1. Prerequisites (as done before)
@@ -39,9 +41,31 @@ and create the container `custom-qwen`:
 Verify the new model exists:
 
     podman exec -it ollama ollama list
-### 3. This documentation covers the process of customizing an Ollama model with a specific system persona and deploying it within a Podman environment.
 
-----------
+### 4. Integration with Python
+
+Once the model is created, you can call it via the Ollama API. The system prompt is now "baked into" the model, so your API payload remains clean.
+
+**Example Python Snippet:**
+
+> import requests
+import json
+
+> OLLAMA_API_URL = "http://localhost:11434/api/generate"
+MODEL_NAME = "custom-qwen"
+payload = {
+    "model": MODEL_NAME,
+    "prompt": "Explain the advantages of Podman over Docker.",
+    "stream": False
+}
+
+> response = requests.post(OLLAMA_API_URL, json=payload)
+print(response.json().get("response"))
+
+
+
+Written with [StackEdit](https://stackedit.io/).
+
 
 ## 🛠️ Customizing Ollama Models in Podman
 
