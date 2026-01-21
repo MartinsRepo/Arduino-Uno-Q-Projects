@@ -65,5 +65,20 @@ Once the model is created, you can call it via the Ollama API. The system prompt
     response = requests.post(OLLAMA_API_URL, json=payload)
     print(response.json().get("response"))
 
+
+### 5. Useful Commands
+Get Ollama help:
+
+    podman exec -it ollama ollama help
+
+List Ollama models in the container:
+
+    podman exec -it ollama ollama list
+
+Remove Ollama model:
+
+    podman exec -it ollama ollama rm custom-qwen:latest
+
+
 Written with [StackEdit](https://stackedit.io/).
 
