@@ -13,7 +13,9 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 > #### [03. Technical Setups](./03.%20Technical%20Setups/README.md)
 
-> #### [4. Debugging: Different Methods](./04.%20Debugging/README.md)
+> #### [04. Debugging: Different Methods](./04.%20Debugging/README.md)
+
+> #### [05. Application Development](./05.%20Application%20Development/README.md)
 
 > #### [10. Tips and Tricks](./10.%20Tips&Tricks/README.md)
 
