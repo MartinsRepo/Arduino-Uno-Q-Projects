@@ -46,6 +46,8 @@ Then we configure VLC on the PC:
 
 This project demonstrates an efficient pipeline to compute Google MediaPipe Face Landmarks on a **Qualcomm-based Edge Device** (e.g., Arduino Uno R4 / Qualcomm Vision AI) and stream the results with minimal latency to a host PC via UDP.
 
+For **Facedetection** we are using **Google Mediapipe**. [Link here](https://developers.google.com/mediapipe/solutions). From this we are using the solutions [Face Landmarker](https://developers.google.com/mediapipe/solutions/vision/face_landmarker) and [Hand Landmarker](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker). The canonical Face Landmark Model is shown here: [Canonical Face Model](https://github.com/google/mediapipe/issues/1854). The model, used here, can be found on [mediapipe solutions](https://github.com/google/mediapipe/blob/master/docs/solutions/models.md).
+
 ### How it Works
 
 The program utilizes a multi-stage pipeline designed to provide smooth performance despite limited CPU resources on the Edge device:
