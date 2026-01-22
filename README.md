@@ -1,9 +1,28 @@
 # Arduino-Uno-Q-Projects
 
+## Why this repository exists
+
+The Arduino Uno Q is fundamentally different from classic Arduino boards.
+This repository documents real-world experiments, debugging sessions,
+limitations, and workarounds when working with the Zephyr-based Arduino core
+and Qualcomm hardware.
+
+If you've ever asked:
+- Why does OpenOCD not hit breakpoints?
+- Why does SPI work on Uno but not Uno Q?
+- How do GPIOs really map?
+…this repo is for you.
+
 ### License
 Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
 
 ![intro](./intro.png)
+
+### Related projects
+
+> [VisualAI](https://github.com/MartinsRepo/VisualAI)
+
+> [FlowiseFaceMesh](https://github.com/MartinsRepo/FlowiseFaceMesh)
 
 ## Repo Navigator
 
@@ -57,6 +76,13 @@ These ideas are engineered so the LLM only runs occasionally, while **the STM32 
     
 -   **Bricks Used:** PIR sensor, magnetic switch, perhaps a small speaker/buzzer for pre-LLM alerts.
 
+## Who this is for
+
+✔ Embedded developers
+✔ Zephyr / RTOS users
+✔ Arduino users moving beyond AVR
+✔ Debugging & reverse-engineering enthusiasts
+✔ Anyone frustrated by undocumented behavior
 
 
 > Written with [StackEdit](https://stackedit.io/).
