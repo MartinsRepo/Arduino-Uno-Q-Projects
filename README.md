@@ -1,6 +1,8 @@
 # Arduino-Uno-Q-Projects
 
-## Why this repository exists
+![intro](./intro.png)
+
+### Why this repository exists
 
 The Arduino Uno Q is fundamentally different from classic Arduino boards.
 This repository documents real-world experiments, debugging sessions,
@@ -16,14 +18,13 @@ If you've ever asked:
 ### License
 Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
 
-![intro](./intro.png)
-
 ### Related Projects
-
 
 | Mediapipe Facedetection |  here with Low Code Graphical Flowise based LLM|
 |--|--|
 | [**VisualAI**](https://github.com/MartinsRepo/VisualAI) | [**FlowiseFaceMesh**](https://github.com/MartinsRepo/FlowiseFaceMesh) |
+
+___
 
 ## Repo Navigator
 
