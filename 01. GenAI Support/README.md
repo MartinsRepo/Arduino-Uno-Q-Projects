@@ -14,6 +14,8 @@ Then we accessed it via Python Script and a third approach, we customized it via
 
 > #### [Customizing the Model](./03.%20Customizing%20the%20Model/Customizing.md)
 
+> #### [OpenAI API Access](./04.%20OpenAI%20API/OpenAI.md)
+
 
 
 
