@@ -18,10 +18,10 @@ Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ![intro](./intro.png)
 
-### Related projects
+### Related Projects
 
 
-| Google Mediapipe Facedetection |  here with Flowise LLM|
+| Mediapipe Facedetection |  here with Low Code Graphical Flowise based LLM|
 |--|--|
 | [**VisualAI**](https://github.com/MartinsRepo/VisualAI) | [**FlowiseFaceMesh**](https://github.com/MartinsRepo/FlowiseFaceMesh) |
 
