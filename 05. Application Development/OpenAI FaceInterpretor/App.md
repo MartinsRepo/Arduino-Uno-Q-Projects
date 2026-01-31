@@ -2,6 +2,10 @@
 
 This project implements a high-performance facial expression and behavior analysis system on an Arduino/Qualcomm development board. It uses a unique **hybrid architecture** to bypass local software limitations by bridging a MicroPython frontend with a containerized AI backend.
 
+
+|   ![Display](./gallery/displayfacedescription.jpg)| ![http://<host pc ip>:5000/video_feed](./gallery/visualisation.png) |
+
+
 ## 🌟 Key Features
 
 -   **Real-time Analysis:** Detects facial muscle movements and head poses using GPT-4o-mini.
