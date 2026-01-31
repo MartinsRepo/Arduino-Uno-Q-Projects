@@ -37,7 +37,7 @@ This directory houses the containerized backend where the heavy lifting happens.
 
 -   [**face_service.py**](./source/face_service.py): The "Intelligence Core." A Flask-based API that integrates **MediaPipe** for vision and **OpenAI** for logic/processing.
 
--   [**requirement.txt**](./source/requirement.txt): Lists all necessary Python libraries (Flask, mediapipe, openai, etc.).
+-   [**requirements.txt**](./source/requirements.txt): Lists all necessary Python libraries (Flask, mediapipe, openai, etc.).
 
 
 ### 🐍 Python (Bridge Layer)
