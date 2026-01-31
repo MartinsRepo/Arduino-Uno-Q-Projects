@@ -29,6 +29,8 @@ Here is a clean, organized breakdown of your project structure. This layout help
 
 ## 📂 Project Architecture
 
+### [**Project Link**](./source/openai-faceInterpretor.zip)
+
 ### 🐳 Docker (Intelligence Layer)
 
 This directory houses the containerized backend where the heavy lifting happens.
