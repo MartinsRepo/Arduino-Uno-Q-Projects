@@ -33,28 +33,28 @@ Here is a clean, organized breakdown of your project structure. This layout help
 
 This directory houses the containerized backend where the heavy lifting happens.
 
--   **`Dockerfile`**: Defines the environment. It sets up **Python 3.12** and installs system-level dependencies like `ffmpeg` (for video processing) and `v4l-utils` (for camera handling).
+-   [**Dockerfile**](./source/Dockerfile): Defines the environment. It sets up **Python 3.12** and installs system-level dependencies like `ffmpeg` (for video processing) and `v4l-utils` (for camera handling).
 
--   **`face_service.py`**: The "Intelligence Core." A Flask-based API that integrates **MediaPipe** for vision and **OpenAI** for logic/processing.
+-   [**face_service.py**](./source/face_service.py): The "Intelligence Core." A Flask-based API that integrates **MediaPipe** for vision and **OpenAI** for logic/processing.
 
--   **`requirements.txt`**: Lists all necessary Python libraries (Flask, mediapipe, openai, etc.).
+-   [**requirement.txt**](./source/requirement.txt): Lists all necessary Python libraries (Flask, mediapipe, openai, etc.).
 
 
 ### 🐍 Python (Bridge Layer)
 
--   **`main.py`**: A MicroPython script designed for **Arduino Lab**. It acts as the UI or the communication bridge between your hardware and the Dockerized service.
+-   [**main.py**](./source/main.py): A MicroPython script designed for **Arduino Lab**. It acts as the UI or the communication bridge between your hardware and the Dockerized service.
 
 
 ### 🔌 Sketch (Hardware Layer)
 
--   **`sketch.ino`**: The C++ source code for the low-level hardware configuration (GPIO pins, sensor polling, etc.).
+-   [**sketch.ino**](./source/sketch.ino): The C++ source code for the low-level hardware configuration (GPIO pins, sensor polling, etc.).
 
 -   **`sketch.yaml`**: Metadata for the Arduino project, ensuring the IDE and CLI know how to compile and upload the code.
 
 
 ### 🔑 Configuration
 
--   **`env`**: A protected file containing your **OpenAI API Key**. _Note: Never commit this file to public version control (like GitHub)._
+-   [**env**](./source/env): A protected file containing your **OpenAI API Key**. _Note: Never commit this file to public version control (like GitHub)._
 
 ## 🚀 Start the Project
 

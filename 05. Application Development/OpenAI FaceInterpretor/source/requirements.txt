@@ -1,0 +1,5 @@
+opencv-python-headless
+mediapipe
+langchain-openai
+python-dotenv
+flask
