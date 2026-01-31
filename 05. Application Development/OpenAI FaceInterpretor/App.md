@@ -3,7 +3,7 @@
 This project implements a high-performance facial expression and behavior analysis system on an Arduino/Qualcomm development board. It uses a unique **hybrid architecture** to bypass local software limitations by bridging a MicroPython frontend with a containerized AI backend.
 
 
-| <img src="./gallery/displayfacedescription.jpg" width="508" height="452" alt="Display"> | <img src="./gallery/visualisation.png" width="508" height="452" alt="Video Feed"> |
+| <img src="./gallery/displayfacedescription.jpg" width="400" height="356" alt="Display"> | <img src="./gallery/visualisation.png" width="400" height="356" alt="Video Feed"> |
 
 
 ## 🌟 Key Features
