@@ -75,7 +75,7 @@ We extend the original image with the **nanobot**.
 
 #### Step 2: Build it
 
-    docker build --build-arg OPENAI_API_KEY=sk-xxxx ^Ct my-python-apps-base:0.6.4 .
+    docker build --build-arg OPENAI_API_KEY=sk-xxxx -t my-python-apps-base:0.6.4 .
 #### Step 3: Tag it as the official image
 
     docker tag my-python-apps-base:0.6.4 ghcr.io/arduino/app-bricks/python-apps-base:0.6.4
