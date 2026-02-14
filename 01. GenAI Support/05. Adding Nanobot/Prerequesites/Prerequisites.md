@@ -28,22 +28,40 @@ You cannot directly modify:
 -   installed apt packages
 
 ## How to run Nanobot
-For storage purpose, we created a **Podman-Image**, as shown in projects below.
-Using **App Lab** projects together with Podman applications, we have to install Podman in the prebuild image and run the container in `--privileged` mode.
+
+We extend the original image with the **nanon bot**.
 
 ## Create Your Own Derived Image
 
 #### Step 1: Create your own Dockerfile
 
     FROM ghcr.io/arduino/app-bricks/python-apps-base:0.6.4
+    # Switch to root to install system deps
     USER root
+    
+    # Install git
     RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        podman \
+        git \
     && rm -rf /var/lib/apt/lists/*
+    
+    # Clone nanobot repository
+    WORKDIR /opt
+    RUN git clone https://github.com/MartinsRepo/nanobot.git
+    
+    # Install nanobot (editable mode)
+    WORKDIR /opt/nanobot
+    RUN pip install --no-cache-dir -e .
+    
+    # Switch back to default app user (IMPORTANT)
+    USER app
+    
+    # Return to app working directory
+    WORKDIR /app
+    
+    # switch back to original user (important!)
+    USER app
 
-# switch back to original user (important!)
-USER app
 
 #### Step 2: Build it
 
