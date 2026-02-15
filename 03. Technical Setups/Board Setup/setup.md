@@ -28,7 +28,7 @@ and uncomment *user_allow_other*
 
 and make it permanent by adding in *fstab*:
 
-    sudo nano /etc/fsta
+    sudo nano /etc/fstab
 
 and append:
 
