@@ -41,5 +41,5 @@ The sdcard should be formatted in ext4 and about the size of 64Gb.
 
 On the sdcard create these folders:
 
-    mkdir /mnt/podman
-    mkdir /mnt/podman_temp_space
+    mkdir /mnt/sd/podman
+    mkdir /mnt/sd/podman_temp_space
