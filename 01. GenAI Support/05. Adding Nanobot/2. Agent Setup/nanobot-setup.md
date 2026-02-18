@@ -23,6 +23,7 @@ In the folder ArduinoApps go into the root of your project and edit **app.yaml**
     nano app.yaml` 
     
 In the section **python_packages**, you can add the libraries:
+[see app.yaml](./src/app.yaml)
 
 > #app.yaml: The main configuration file for your Arduino App.
 > #This file describes the application's metadata and properties.
@@ -68,6 +69,7 @@ In the section **python_packages**, you can add the libraries:
 ## 3. Key Modifications
 
 ### `main.py` (Provider Initialization Fix)
+[see main.py](./src/main.py)
 
 Previously, the system suffered from an authentication error because the `LiteLLMProvider` was receiving the model name as its first positional argument, causing it to treat the model name as the API Key.
 
@@ -91,6 +93,7 @@ Previously, the system suffered from an authentication error because the `LiteLL
     
 
 ### `sketch.ino` (Communication Protocol)
+[see sketch.ino](./src/sketch.ino)
 
 The sketch was optimized to handle the asynchronous nature of LLM responses.
 
