@@ -4,19 +4,31 @@
 
 ### Why this repository exists
 
-The Arduino Uno Q is fundamentally different from classic Arduino boards.
-This repository documents real-world experiments, debugging sessions,
-limitations, and workarounds when working with the Zephyr-based Arduino core
-and Qualcomm hardware.
+The Arduino Uno Q is a "Dual-Soul" powerhouse, and this repository is dedicated to mastering its complexity. It is no longer just about blinking LEDs; it is about orchestrating a Qualcomm QRB2210 (Debian Linux) "Brain" and an STM32U585 (Zephyr RTOS) "Nervous System."
+
+We document the journey of pushing this board beyond its documentation—from low-level bit-banging and Zephyr debugging to deploying Agentic AI frameworks that allow your Arduino to think, search the web, and reason.
 
 If you've ever asked:
-- Why does OpenOCD not hit breakpoints?
-- Why does SPI work on Uno but not Uno Q?
-- How do GPIOs really map?
-…this repo is for you.
 
-### License
-Licensed under [Apache Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). This repo follows the licence terms.
+    How do I bridge a Python-based AI Agent to my Arduino Sketch?
+
+    Why does the Zephyr core behave differently than standard AVR?
+
+    How can I run local LLMs on the MPU while the MCU handles real-time sensors?
+
+    Why is my SPI/GPIO mapping not matching the datasheet?
+    …this repo is for you.
+
+
+In this repo you find:
+
+    - Display text on a SPI driven OLED display
+    - Make a local Ollama Model working
+    - Attach a webcam
+    - Perform Google Mediapipe Facedetection
+    - Interpret the face by a Large Language Model
+    - Make a small version of the Agent OpenClaw running and using a sketch as tool
+    - and in future more applications
 
 ### Related Projects
 
