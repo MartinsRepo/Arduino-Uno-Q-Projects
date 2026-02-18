@@ -1,6 +1,6 @@
-# nanobot - an ultra-lightweight AI assistant
+# nanobot - An Ultra-lightweight AI Assistant
 
-![intro](./arduino-app-lab.png)
+| <img src="./arduino-app-lab.png" width="400" height="356" alt="Display">
 
 ### What is **nanobot**
 
