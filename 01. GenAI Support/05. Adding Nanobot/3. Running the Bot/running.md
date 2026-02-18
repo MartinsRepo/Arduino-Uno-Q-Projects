@@ -3,13 +3,11 @@
 Follow these steps to get your Arduino Uno Q communicating with the Nanobot agent.
 ### 1. Hardware Preparation
 
-    Connect your Arduino Uno Q to your computer via USB.
-
-    Open sketch/sketch.ino in the Arduino IDE.
-
-    Select the correct Port and Board (Arduino Uno).
-
-    Click Upload. Once the terminal says "Done uploading," the hardware is ready.
+ - Connect your Arduino Uno Q to your computer via USB and open a shell.
+ - Download the file [unoq-nanobot-gitversion.zip](./src/unoq-nanobot-gitversion.zip) from the repo
+ - Unpack it into the folder ~/ArduinoApps/unoq-nanobot
+ - On the Host-PC, open the **Arduino App Lab** and open the project now visible in MyApps.
+ - From there, you can after personlisation and configuration start it with the RUN Button. Don't forget to docker build the nanobot as described in the section *Prerequisites*
 
 ### 2. Configuration
 
