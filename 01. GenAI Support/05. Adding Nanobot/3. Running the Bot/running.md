@@ -36,5 +36,5 @@ The actual query is set in `sketch.ino` with
 
 In the Arduino App Lab the result is shown as output in the console/python, as shown here:
 
- ![result](./gallery/arduino-app-lab.png)
+ ![result](./gallery/agent_response.png)
 
