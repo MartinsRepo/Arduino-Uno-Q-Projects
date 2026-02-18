@@ -16,6 +16,8 @@ Then we accessed it via Python Script and a third approach, we customized it via
 
 > #### [OpenAI API Access](./04.%20OpenAI%20API/OpenAI.md)
 
+> #### [05. Adding Nanobot](./05.%20Adding%20Nanobot/Nanobot.md)
+
 
 
 
