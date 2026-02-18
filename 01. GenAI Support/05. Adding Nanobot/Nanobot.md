@@ -16,7 +16,7 @@
 
 > #### [1. Prerequisites](./1.%20Prerequesites/Prerequisites.md)
 
-> #### [2. Agent Setup](./2.%20Agent%20Setup/Nanobotsetup.md)
+> #### [2. Agent Setup](./2-Agent-Setup/nanobot-setup.md)
 
 > #### [3. Running the Bot](./3.%20Running%20the%20Bot/running.md)
 
