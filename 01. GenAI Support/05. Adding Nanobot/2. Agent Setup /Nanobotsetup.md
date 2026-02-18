@@ -27,15 +27,19 @@ In the section **python_packages**, you can add the libraries:
 > #app.yaml: The main configuration file for your Arduino App.
 > #This file describes the application's metadata and properties.
 > #The user-visible name of the application.
+>
 > name: unoq-nanobot
 > 
 > #A brief description of what the application does.
+>
 > description: ""
 > 
 > #The icon for the application, can be an emoji or a short string.
+>
 > icon: 😀
 > 
 > #This section tells the Uno Q which libraries to install via pip/package manager
+>
 > python_packages:
 > - requests
 > - numpy
@@ -45,9 +49,11 @@ In the section **python_packages**, you can add the libraries:
 > 
 > #A list of network ports that the application exposes. 
 > #Example: [80, 443]
+>
 > ports: []
 > 
 > #A list of bricks used by this application.
+>
 > bricks: []
 
 ### AI Provider Layer
