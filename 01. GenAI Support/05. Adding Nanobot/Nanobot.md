@@ -18,7 +18,7 @@
 
 > #### [2. Agent Setup](./2.%20Agent%20Setup/Nanobotsetup.md)
 
-> #### [3. running the Bot](./3.%20Running%20the%20Bot/running.md)
+> #### [3. Running the Bot](./3.%20Running%20the%20Bot/running.md)
 
 
 
