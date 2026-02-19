@@ -17,3 +17,19 @@ Copy and expand this code in the Arduino shell to
     unzip servodemo.zip
 
 and open it on the Host in the Arduino App Lab.
+
+Add the libraries:
+
+> MsgPack 0.4.2
+> MessagePack implementation for Arduino (compatible with other C++ apps)
+
+and
+
+> Servo 1.3.0
+> by Michael Margolis, Arduino
+> Allows Arduino boards to control a variety of servo motors.
+
+
+
+
+
