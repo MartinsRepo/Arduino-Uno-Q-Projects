@@ -36,3 +36,11 @@ In the Arduino App Lab the result is shown as output in the console/python, as s
 
  ![result](./gallery/agent_response.png)
 
+
+### 4. How the Multi-Provider Bridge Works
+
+The integration uses a custom `LiteLLMProvider` that acts as a translation layer. This allows the Uno Q to switch between local models (like Qwen running on the MPU) and cloud models (like GPT-4o-mini) without changing the Arduino sketch.
+
+**Key Technical Insight:**
+
+> **The Shadowing Fix:** We discovered that LiteLLM requires explicit keyword arguments (`api_key=`, `default_model=`). Without these, the Python interpreter may pass the model name string into the API key slot, leading to `AuthenticationError`.
