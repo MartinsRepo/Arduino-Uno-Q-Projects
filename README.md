@@ -28,6 +28,7 @@ In this repo you find:
     - Perform Google Mediapipe Facedetection
     - Interpret the face by a Large Language Model
     - Make a small version of the Agent OpenClaw running and using a sketch as tool
+    - apply servos to the device
     - and in future more applications
 
 ### Related Projects
